@@ -1,22 +1,45 @@
 <script lang="ts">
-
-   function scrollIntoView(event: Event) {
-        const target = event.target as HTMLElement;
-        const el = document.querySelector(target.getAttribute('href')!);
-        if (!el) return;
-    el.scrollIntoView({
-      behavior: 'smooth'
-    });
+  function smoothScroll(node: HTMLAnchorElement) {
+    const handleClick = (event: { preventDefault: () => void; }) => {
+      event.preventDefault();
+      
+      const targetId = node.getAttribute('href')?.substring(1);
+      
+      if (!targetId) {
+        console.warn('No target specified for smooth scroll');
+        return;
+      }
+      
+      const targetElement = document.getElementById(targetId);
+      
+      if (!targetElement) {
+        console.error(`Target element with id "${targetId}" not found`);
+        return;
+      }
+      
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start',
+        inline: 'nearest'
+      });
+    };
+    
+    node.addEventListener('click', handleClick);
+    
+    return {
+      destroy() {
+        node.removeEventListener('click', handleClick);
+      }
+    };
   }
-
 </script>
 <header>
     <nav>
         <div>
-            <a href="#home" onclick={scrollIntoView}>Home</a>
-            <a href="#research_qs" onclick={scrollIntoView}>Research Questions</a>
-            <a href="#data" onclick={scrollIntoView}>Data</a>
-            <a href="#hypothesis" onclick={scrollIntoView}>Hypothesis</a>
+            <a href="#home" use:smoothScroll>Home</a>
+            <a href="#research_qs" use:smoothScroll>Research Questions</a>
+            <a href="#data" use:smoothScroll>Data</a>
+            <a href="#hypothesis" use:smoothScroll>Hypothesis</a>
         </div>
     </nav>
 </header>
@@ -48,6 +71,13 @@
                style="font-size: 50px; background-color: #7cceff; color: #ffffff; text-decoration: none; padding: 10px 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
                 Google Sheets
             </a>
+            <br>
+            <br>
+            <h3>
+                This datasheet was gathered from
+                <a href="https://openstat.psa.gov.ph/PXWeb/pxweb/en/DB/DB__2E__FS/?tablelist=true&rxid=bdf9d8da-96f1-4100-ae09-18cb3eaeb313t" style="color: #0077b6">Philippine Statistics Authority OpenSTAT</a>
+                database. We downloaded the <b>Volume of Production</b> by Geolocation, Species, Year and Quarter for <b>Commercial Fisheries</b> and <b>Aquaculture</b> from <b>2002 - 2024</b>. Since there was a limitation to the amount of rows in the data that can be downloaded. We compiled the data and put it into one sheet.
+            </h3>
         </center>
     </section>
 
@@ -57,7 +87,7 @@
             <div style="text-align: left; max-width: 800px; margin: 0 auto; padding: 1rem; background-color: #e3f2fd; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
                 <p style="font-size: 20pt; color: #023e8a; margin: 1rem 0; line-height: 1.6;">
                     <strong>Alternative Hypothesis:</strong>
-                    There is a significant trend in the volume of production of different species of fish in the Philippines per year, either increasing or decreasing.
+                    There is a positive trend in the volume of production of different species of fish in the Philippines per year.
                 </p>
                 <p style="font-size: 20pt; color: #023e8a; margin: 1rem 0; line-height: 1.6;">
                     <strong>Null Hypothesis:</strong>
