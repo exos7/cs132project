@@ -131,6 +131,8 @@ header {
 }
 
 #rsq > .rsqtitle {
+  margin-top: 5%;
+  margin-left: 5%;
   color: #303655;
   font-size: 15vh;
   font-family: Bebas Neue;
@@ -138,17 +140,18 @@ header {
   text-transform: uppercase;
   line-height: 140px;
   word-wrap: break-word;
-  transform: translate(5%, 5%)
 }
 
 #rsq > .rsqcontent {
   color: #303655;
-  font-size: 5vh;
+  font-size: 3vw;
   font-family: Poppins;
   font-weight: 400;
   line-height: 250%;
   word-wrap: break-word;
-  transform: translateY(20%)
+  text-align: justify;
+  margin-right: 5%;
+  margin-top: calc(100% - 70%)
 }
 
 #data {
