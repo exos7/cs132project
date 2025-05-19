@@ -33,7 +33,7 @@
     };
   }
 </script>
-<header style="display: flex; align-items: center; justify-content: space-between; padding: 1rem; background-color: #e3f2fd; font-family:Anton, sans-serif; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+<header style="display: flex; align-items: center; justify-content: space-between; padding: 1rem; font-family:Bebas Neue, sans-serif;">
     <h1 style="font-size: 2rem; color: rgba(227, 242, 253, 0.9); margin: 0;">
         <div style="display: flex; align-items: center; gap: 0.5rem">
             <a href="https://www.flaticon.com/free-icons/nemo" title="nemo icons">
