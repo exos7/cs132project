@@ -82,22 +82,22 @@ header {
 
 #title > .line {
   width: 0px;
-  height: 452px;
+  height: calc(100% - 5%);
   outline: 1px white solid;
 }
 
 #title > .sdg14 {
-  width: 789px;
-  height: 126px;
+  width: auto;
+  height: auto;
   justify-content: center;
   display: grid;
   flex-direction: column;
-  transform: translate(-15%, 50%);
 }
 
 #title > .sdg14 > .sdg14title {
+  position:relative;
   color: white;
-  font-size: 15vh;
+  font-size: 10vh;
   font-family: Bebas Neue;
   font-weight: 400;
   line-height: 80px;
