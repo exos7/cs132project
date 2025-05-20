@@ -56,11 +56,12 @@ header {
     width: auto;
   }
 }
+
 #title {
   display: grid;
   grid-template-columns: 40% 5% 55%;
   width: inherit;
-  height: 741px;
+  height: 100vh;
   position: relative;
   background: #6F90AF;
   overflow: hidden;
@@ -155,7 +156,7 @@ header {
 
 #data {
   width: inherit;
-  height: 770px;
+  height: 85vh;
   position: relative;
   background: #303655;
   overflow: hidden;
@@ -164,7 +165,7 @@ header {
 }
 #data > .datatitle {
   color: white;
-  font-size: 72px;
+  font-size: 10vh;
   font-family: Bebas Neue;
   font-weight: 400;
   word-wrap: break-word;
@@ -178,10 +179,10 @@ header {
 
 #data > .datacontent > .datadescription {
   color: white;
-  font-size: 30px;
+  font-size: 3vh;
   font-family: Poppins;
   font-weight: normal;
-  line-height: 40px;
+  line-height: 5vh;
   word-wrap: break-word;
   text-align: justify;
   justify-content: center;
@@ -195,7 +196,7 @@ header {
   text-align: justify;
   justify-content: center;
   color: white;
-  font-size: 4vh;
+  font-size: 5vh;
   font-family: Poppins;
   font-weight: inherit;
   line-height: 50px;
