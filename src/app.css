@@ -128,7 +128,7 @@ header {
   background: white;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 40% 60%;
+  grid-template-columns: .4fr .6fr;
 }
 
 #rsq > .rsqtitle {
