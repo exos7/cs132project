@@ -122,7 +122,7 @@ header {
 
 #rsq {
   width: inherit;
-  height: 770px;
+  height: 85vh;
   position: relative;
   background: white;
   overflow: hidden;
@@ -147,7 +147,7 @@ header {
   font-size: 5vh;
   font-family: Poppins;
   font-weight: 400;
-  line-height: 250%;
+  line-height: 12vh;
   word-wrap: break-word;
   text-align: justify;
   margin-right: 5%;
