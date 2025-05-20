@@ -83,7 +83,7 @@
                 <div class="datadescription">
                 This datasheet was gathered from
                 <a href="https://openstat.psa.gov.ph/PXWeb/pxweb/en/DB/DB__2E__FS/?tablelist=true&rxid=bdf9d8da-96f1-4100-ae09-18cb3eaeb313t" style="color: #0077b6">Philippine Statistics Authority OpenSTAT</a>
-                database. We downloaded the <b>Volume of Production</b> by Geolocation, Species, Year and Quarter for <b>Commercial Fisheries</b> from <b>2002 - 2024</b>. Since there was a limitation to the amount of rows in the data that can be downloaded. We compiled the data and put it into one sheet.
+                database. We downloaded the <b>Volume of Production</b> by Geolocation, Species, Year and Quarter for <b>Commercial Fisheries, Inland, Aquaculture, Municipal Inland Fisheries</b> from <b>2002 - 2024</b>. Since there was a limitation to the amount of rows in the data that can be downloaded. We compiled the data and put it into one sheet.
                 We used Google Sheets to compile the data and make it easier to analyze.
                 </div>
                 <div>
