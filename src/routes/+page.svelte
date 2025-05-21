@@ -1,4 +1,5 @@
 <script lang="ts">
+  // Keep your original smooth scroll functionality
   function smoothScroll(node: HTMLAnchorElement) {
     const handleClick = (event: { preventDefault: () => void; }) => {
       event.preventDefault();
@@ -32,8 +33,21 @@
       }
     };
   }
+
+  // Add mobile menu toggle functionality
+  let mobileMenuOpen = false;
+  
+  function toggleMobileMenu() {
+    mobileMenuOpen = !mobileMenuOpen;
+  }
+
+  // Close mobile menu after clicking a link
+  function closeMenu() {
+    mobileMenuOpen = false;
+  }
 </script>
-<header style="display: flex; align-items: center; justify-content: space-between; padding: 1rem; font-family:Bebas Neue, sans-serifs;">
+
+<header class={mobileMenuOpen ? "menu-open" : ""}>
     <h1>
         <div style="display: flex; align-items: center; gap: 0.5rem">
             <a href="https://www.flaticon.com/free-icons/nemo" title="nemo icons">
@@ -42,13 +56,21 @@
             <span>Net Gains</span>
         </div>
     </h1>
+    <button class="mobile-menu-button" on:click={toggleMobileMenu} aria-label="Toggle menu">
+        <!-- Simple hamburger icon -->
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+        </svg>
+    </button>
     <nav>
         <div style="display: flex; gap: 1rem;"> 
-            <a href="#home" use:smoothScroll >Home</a>
-            <a href="#research_qs" use:smoothScroll>Research Questions</a>
-            <a href="#data" use:smoothScroll>Data</a>
-            <a href="#hypothesis" use:smoothScroll>Hypothesis</a>
-            <a href="#team" use:smoothScroll>Team</a>
+            <a href="#home" use:smoothScroll on:click={closeMenu}>Home</a>
+            <a href="#research_qs" use:smoothScroll on:click={closeMenu}>Research Questions</a>
+            <a href="#data" use:smoothScroll on:click={closeMenu}>Data</a>
+            <a href="#hypothesis" use:smoothScroll on:click={closeMenu}>Hypothesis</a>
+            <a href="#team" use:smoothScroll on:click={closeMenu}>Team</a>
         </div>
     </nav>
 </header>
@@ -67,7 +89,7 @@
     
     <section id="rsq">
            <div class="rsqtitle">Research <br>Questions</div>
-           <div class=rsqcontent>
+           <div class="rsqcontent">
                 <p>
                     <strong>1.</strong> What is the trend in the volume of overall fish production in the Philippines?
                 </p>
@@ -92,47 +114,65 @@
             </div>
     </section>
     <section id="bg_of_study">    
-        <div>
-            <h2 style="font-size: 30pt; color: #0077b6; flex: 1; position:absolute top:50%">Background of the Study</h2>
-            <div style="text-align: left; max-width: 800px; padding: 1rem; background-color: #e3f2fd; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); flex: 2;">
-                <p style="font-size: 12pt; color: #023e8a; margin: 1rem 0; line-height: 1.6;">The goal of SDG 14: Life Below Water is to examine fish production trends in the Philippines, a country where fisheries are essential for community livelihoods, food security, and economic growth. This study seeks to understand how these trends have evolved over time in response to anthropogenic and environmental stresses by examining the total volume of fish production as well as that of the top five most produced species in the Philippines. The insights that will be produced by the study will be vital for guiding sustainable fisheries management that will aid in the preservation of marine life.</p>
+        <div style="width: 100%; max-width: 1200px; margin: 0 auto; padding: 1rem;">
+            <h2 style="font-size: clamp(1.5rem, 5vw, 30pt); color: #0077b6; margin-bottom: 1rem;">Background of the Study</h2>
+            <div style="text-align: left; width: 100%; max-width: 800px; padding: 1rem; background-color: #e3f2fd; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <p style="font-size: clamp(0.9rem, 3vw, 12pt); color: #023e8a; margin: 1rem 0; line-height: 1.6;">The goal of SDG 14: Life Below Water is to examine fish production trends in the Philippines, a country where fisheries are essential for community livelihoods, food security, and economic growth. This study seeks to understand how these trends have evolved over time in response to anthropogenic and environmental stresses by examining the total volume of fish production as well as that of the top five most produced species in the Philippines. The insights that will be produced by the study will be vital for guiding sustainable fisheries management that will aid in the preservation of marine life.</p>
             </div>
         </div>
     </section>
 
 
-    <section id="hypothesis" style="padding: 2rem; background-color: #caf0f8;">
-        <center>
-            <h2 style="font-size: 50pt; color: #0077b6; margin-bottom: 1rem;">Hypothesis</h2>
-            <div style="text-align: left; max-width: 800px; margin: 0 auto; padding: 1rem; background-color: #e3f2fd; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-                <p style="font-size: 20pt; color: #023e8a; margin: 1rem 0; line-height: 1.6;">
+    <section id="hypothesis" style="padding: 2rem 1rem;">
+        <div style="width: 100%; max-width: 1200px; margin: 0 auto;">
+            <h2 style="font-size: clamp(2rem, 6vw, 50pt); color: #0077b6; margin-bottom: 1rem; text-align: center;">Hypothesis</h2>
+            <div style="text-align: left; width: 100%; max-width: 800px; margin: 0 auto; padding: 1rem; background-color: #e3f2fd; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                <p style="font-size: clamp(1rem, 4vw, 20pt); color: #023e8a; margin: 1rem 0; line-height: 1.6;">
                     <strong>Alternative Hypothesis:</strong>
                     There is a positive trend in the volume of production of different species of fish in the Philippines per year.
                 </p>
-                <p style="font-size: 20pt; color: #023e8a; margin: 1rem 0; line-height: 1.6;">
+                <p style="font-size: clamp(1rem, 4vw, 20pt); color: #023e8a; margin: 1rem 0; line-height: 1.6;">
                     <strong>Null Hypothesis:</strong>
                     There is no significant trend in the volume of production of different species of fish in the Philippines per year.
                 </p>
             </div>
-        </center>
+        </div>
     </section>
-    <section id="team" style="padding: 2rem; background-color: #e0f7fa;">
-        <center>
-            <h2 style="font-size: 50pt; color: #0077b6; margin-bottom: 1rem;">Team</h2>
-            <div style="display: flex; justify-content: center; gap: 1rem;">
-                <div style="flex: 1; padding: 1rem; background-color: #e3f2fd; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-                    <h3 style="font-size: 20pt; color: #0077b6; margin-bottom: 1rem;">Dale Sealtiel Flores</h3>
-                    <p style="font-size: 14pt; color: #023e8a; text-align:justify">I am a 2nd year BS CS student from UP Diliman. I am currently in the process of finding what field of computer science I want to get into. I have somewhat dabbled in web development and data science.</p>
+
+    <section id="team" style="padding: 2rem 1rem; background-color: #e0f7fa;">
+        <div style="width: 100%; max-width: 1200px; margin: 0 auto;">
+            <h2 style="font-size: clamp(2rem, 6vw, 50pt); color: #0077b6; margin-bottom: 2rem; text-align: center;">Team</h2>
+            <div class="team-container" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                <div class="team-member" style="flex: 1; padding: 1rem; background-color: #e3f2fd; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                    <h3 style="font-size: clamp(1.2rem, 4vw, 20pt); color: #0077b6; margin-bottom: 1rem;">Dale Sealtiel Flores</h3>
+                    <p style="font-size: clamp(0.9rem, 3vw, 14pt); color: #023e8a; text-align: justify;">I am a 2nd year BS CS student from UP Diliman. I am currently in the process of finding what field of computer science I want to get into. I have somewhat dabbled in web development and data science.</p>
                 </div>
-                <div style="flex: 1; padding: 1rem; background-color: #e3f2fd; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-                    <h3 style="font-size: 20pt; color: #0077b6; margin-bottom: 1rem;">Aaron Jori Baclor</h3>
-                    <p style="font-size: 14pt; color: #023e8a; text-align:justify">Description about Member 2.</p>
+                <div class="team-member" style="flex: 1; padding: 1rem; background-color: #e3f2fd; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                    <h3 style="font-size: clamp(1.2rem, 4vw, 20pt); color: #0077b6; margin-bottom: 1rem;">Aaron Jori Baclor</h3>
+                    <p style="font-size: clamp(0.9rem, 3vw, 14pt); color: #023e8a; text-align: justify;">Description about Member 2.</p>
                 </div>
-                <div style="flex: 1; padding: 1rem; background-color: #e3f2fd; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
-                    <h3 style="font-size: 20pt; color: #0077b6; margin-bottom: 1rem;">Sebastian Lucian Reyes</h3>
-                    <p style="font-size: 14pt; color: #023e8a; text-align:justify">Description about Member 3.</p>
+                <div class="team-member" style="flex: 1; padding: 1rem; background-color: #e3f2fd; border-radius: 10px; box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);">
+                    <h3 style="font-size: clamp(1.2rem, 4vw, 20pt); color: #0077b6; margin-bottom: 1rem;">Sebastian Lucian Reyes</h3>
+                    <p style="font-size: clamp(0.9rem, 3vw, 14pt); color: #023e8a; text-align: justify;">Description about Member 3.</p>
                 </div>
             </div>
-        </center>
+        </div>
+    </section>
 </main>
 
+<style>
+    /* Add any component-specific styles here if needed */
+    .mobile-menu-button {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        padding: 0.5rem;
+    }
+    
+    @media (min-width: 769px) {
+        .team-container {
+            flex-direction: row !important;
+        }
+    }
+</style>

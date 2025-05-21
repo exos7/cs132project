@@ -3,7 +3,6 @@
 @plugin '@tailwindcss/typography';
 
 /* Water-themed Sticky Header */
-
 header {
   position: sticky;
   top: 18px;
@@ -11,7 +10,8 @@ header {
   width: 98%;
   max-width: inherit;
   transform: translateX(0.1%);
-  height: 3%;
+  height: auto; /* Changed from fixed % to auto for responsiveness */
+  min-height: 50px; /* Added min-height for small screens */
   max-height: 63px;
   margin-left: auto;
   margin-right: auto;
@@ -20,71 +20,124 @@ header {
   overflow: hidden;
   border-radius: 30px;
   backdrop-filter: blur(10px);
+  padding: 0.5rem 1rem; /* Added padding for better mobile spacing */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
 
-  img {
-    width: auto;
-    height: auto;
-    max-width: 41px;
-    max-height: 41px;
+header img {
+  width: auto;
+  height: auto;
+  max-width: 41px;
+  max-height: 41px;
+}
+
+header h1 {
+  color: white;
+  font-size: clamp(1.2rem, 4vw, 2rem); /* Responsive font size */
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  line-height: 1.3;
+  word-wrap: break-word;
+}
+
+header div, header nav {
+  color: white;
+  font-size: clamp(0.9rem, 3vw, 24px); /* Responsive font size */
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  line-height: 1.2;
+  word-wrap: break-word;
+}
+
+/* Mobile menu for header */
+@media (max-width: 768px) {
+  header nav div {
+    display: none; /* Hide nav items on mobile */
   }
-
-  h1 {
-    color: white;
-    font-size: 2rem;
-    font-family: Bebas Neue;
-    font-weight: 400;
-    line-height: 54px;
-    word-wrap: break-word;
+  
+  header .mobile-menu-button {
+    display: block;
   }
+  
+  header.menu-open nav div {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: rgba(48, 54, 85, 0.9);
+    padding: 1rem;
+    border-radius: 0 0 15px 15px;
+    z-index: 1000;
+  }
+}
 
-  div {
-    color: white;
-    font-size: 24px;
-    font-family: Bebas Neue;
-    font-weight: 400;
-    line-height: 36px;
-    word-wrap: break-word;
+@media (min-width: 769px) {
+  header .mobile-menu-button {
+    display: none;
   }
 }
 
 #home {
   margin-top: -70px;
   position: relative;
-  
-  img {
-    height: inherit;
-    width: auto;
-  }
+}
+
+#home img {
+  height: auto;
+  width: 100%; /* Make image responsive */
+  object-fit: cover; /* Maintain aspect ratio */
 }
 
 #title {
   display: grid;
-  grid-template-columns: 40% 5% 55%;
-  width: inherit;
-  height: 100vh;
+  grid-template-columns: 1fr; /* Default for mobile: single column */
+  width: 100%;
+  min-height: 100vh;
   position: relative;
   background: #6F90AF;
   overflow: hidden;
   justify-content: center;
   align-content: center;
+  padding: 2rem 1rem; /* Add padding for mobile */
+}
+
+@media (min-width: 768px) {
+  #title {
+    grid-template-columns: 40% 5% 55%; /* Desktop layout */
+    padding: 0; /* Remove padding on desktop */
+  }
 }
 
 #title img {
-    width: 100%;
-    height: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 400px; /* Limit image size on larger screens */
 }
+
 #title > .sdg14icon {
   inline-size: 100%;
+  text-align: center; /* Center on mobile */
+  margin-bottom: 2rem; /* Space on mobile */
 }
 
 #title > .line {
-  width: 0px;
-  height: calc(100% - 5%);
-  outline: 1px white solid;
+  display: none; /* Hide on mobile */
+}
+
+@media (min-width: 768px) {
+  #title > .line {
+    display: block; /* Show on desktop */
+    width: 0px;
+    height: calc(100% - 5%);
+    outline: 1px white solid;
+  }
 }
 
 #title > .sdg14 {
@@ -93,113 +146,223 @@ header {
   justify-content: center;
   display: grid;
   flex-direction: column;
+  text-align: center; /* Center on mobile */
+}
+
+@media (min-width: 768px) {
+  #title > .sdg14 {
+    text-align: left; /* Left align on desktop */
+  }
 }
 
 #title > .sdg14 > .sdg14title {
-  position:relative;
+  position: relative;
   color: white;
-  font-size: 10vh;
-  font-family: Bebas Neue;
+  font-size: clamp(2.5rem, 8vw, 10vh); /* Responsive font size */
+  font-family: 'Bebas Neue', sans-serif;
   font-weight: 400;
-  line-height: 80px;
+  line-height: 1.2;
   word-wrap: break-word;
 }
+
 #title > .sdg14 > .studytitle {
   color: white;
-  font-size: 5vh;
-  font-family: Poppins;
+  font-size: clamp(1.5rem, 5vw, 5vh); /* Responsive font size */
+  font-family: 'Poppins', sans-serif;
   font-weight: 400;
-  line-height: 55px;
+  line-height: 1.4;
   word-wrap: break-word;
 }
 
 #bg_of_study {
-  width: inherit;
-  height: 770px;
+  width: 100%;
+  min-height: 400px; /* Minimum height for small screens */
+  height: auto; /* Auto height for responsive content */
+  max-height: 770px; /* Original max height */
   position: relative;
   background: white;
   overflow: hidden;
+  padding: 2rem; /* Add padding for spacing */
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #rsq {
-  width: inherit;
-  height: 85vh;
+  width: 100%;
+  min-height: 400px; /* Minimum height */
+  height: auto; /* Auto height for responsive content */
+  max-height: 85vh; /* Original max height */
   position: relative;
   background: white;
   overflow: hidden;
   display: grid;
-  grid-template-columns: .4fr .6fr;
+  grid-template-columns: 1fr; /* Single column on mobile */
+  padding: 2rem 1rem; /* Add padding for mobile */
+  gap: 2rem; /* Space between items */
+}
+
+@media (min-width: 768px) {
+  #rsq {
+    grid-template-columns: 0.4fr 0.6fr; /* Original proportions on desktop */
+    height: 85vh; /* Original height on desktop */
+  }
 }
 
 #rsq > .rsqtitle {
-  margin-top: 5%;
-  margin-left: 5%;
+  margin-top: 1rem; /* Reduced for mobile */
+  margin-left: 0; /* Reset for mobile */
   color: #303655;
-  font-size: 15vh;
-  font-family: Bebas Neue;
+  font-size: clamp(3rem, 10vw, 15vh); /* Responsive font size */
+  font-family: 'Bebas Neue', sans-serif;
   font-weight: 400;
   text-transform: uppercase;
-  line-height: 140px;
+  line-height: 1.2;
   word-wrap: break-word;
+  text-align: center; /* Center on mobile */
+}
+
+@media (min-width: 768px) {
+  #rsq > .rsqtitle {
+    margin-top: 5%; /* Original margin */
+    margin-left: 5%; /* Original margin */
+    text-align: left; /* Original alignment */
+    line-height: 140px; /* Original line height */
+  }
 }
 
 #rsq > .rsqcontent {
   color: #303655;
-  font-size: 5vh;
-  font-family: Poppins;
+  font-size: clamp(1rem, 3vw, 4vh); /* Responsive font size */
+  font-family: 'Poppins', sans-serif;
   font-weight: 400;
-  line-height: 12vh;
+  line-height: 1.5; /* Better for readability on mobile */
   word-wrap: break-word;
   text-align: justify;
-  margin-right: 5%;
+  margin-right: 0; /* Reset for mobile */
+}
+
+@media (min-width: 768px) {
+  #rsq > .rsqcontent {
+    margin-right: 5%; /* Original margin */
+    line-height: 12vh; /* Original line height */
+  }
 }
 
 #data {
-  width: inherit;
-  height: 85vh;
+  width: 100%;
+  min-height: 400px; /* Minimum height */
+  height: auto; /* Auto height for responsive content */
+  max-height: 85vh; /* Original max height */
   position: relative;
   background: #303655;
   overflow: hidden;
   display: grid;
-  grid-template-columns: 1fr 0.5fr;
+  grid-template-columns: 1fr; /* Single column on mobile */
+  padding: 2rem 1rem; /* Add padding for mobile */
 }
+
+@media (min-width: 768px) {
+  #data {
+    grid-template-columns: 1fr 0.5fr; /* Original proportions on desktop */
+    height: 85vh; /* Original height on desktop */
+  }
+}
+
 #data > .datatitle {
   color: white;
-  font-size: 10vh;
-  font-family: Bebas Neue;
+  font-size: clamp(2.5rem, 8vw, 10vh); /* Responsive font size */
+  font-family: 'Bebas Neue', sans-serif;
   font-weight: 400;
   word-wrap: break-word;
-  grid-column: 1 /span 2;
+  grid-column: 1 / -1; /* Span all columns on all screen sizes */
   text-align: center;
+  margin-bottom: 2rem; /* Add space below title */
 }
 
 #data > .datacontent {
   display: grid;
+  grid-template-columns: 1fr; /* Single column on all screen sizes */
 }
 
 #data > .datacontent > .datadescription {
   color: white;
-  font-size: 3vh;
-  font-family: Poppins;
+  font-size: clamp(1rem, 3vw, 3vh); /* Responsive font size */
+  font-family: 'Poppins', sans-serif;
   font-weight: normal;
-  line-height: 5vh;
+  line-height: 1.6; /* Better for readability */
   word-wrap: break-word;
   text-align: justify;
   justify-content: center;
   grid-column: 1;
-  padding: 5%
+  padding: 5%;
 }
 
 #data > .datalink {
-  width: 756px;
-  height: 230px;
+  width: 100%; /* Full width on mobile */
+  max-width: 756px; /* Original max width */
+  height: auto; /* Auto height for responsive content */
+  min-height: 100px; /* Minimum height */
+  max-height: 230px; /* Original max height */
   text-align: justify;
   justify-content: center;
   color: white;
-  font-size: 5vh;
-  font-family: Poppins;
+  font-size: clamp(1.5rem, 4vw, 5vh); /* Responsive font size */
+  font-family: 'Poppins', sans-serif;
   font-weight: inherit;
-  line-height: 50px;
+  line-height: 1.4; /* Better for readability */
   word-wrap: break-word;
-  grid-column: 2;
+  grid-column: 1; /* Take up full column on mobile */
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  #data > .datalink {
+    grid-column: 2; /* Original position on desktop */
+    padding: 0;
+    line-height: 50px; /* Original line height */
+  }
+}
+
+/* Additional responsive styles for hypothesis and team sections */
+#hypothesis, #team {
+  padding: 2rem 1rem; /* Mobile padding */
+}
+
+@media (min-width: 768px) {
+  #hypothesis, #team {
+    padding: 2rem; /* Original padding */
+  }
+}
+
+#hypothesis h2, #team h2 {
+  font-size: clamp(2.5rem, 8vw, 50pt); /* Responsive font size */
+}
+
+#hypothesis p {
+  font-size: clamp(1rem, 4vw, 20pt); /* Responsive font size */
+}
+
+#team .team-container {
+  display: flex;
+  flex-direction: column; /* Stack on mobile */
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  #team .team-container {
+    flex-direction: row; /* Side by side on desktop */
+  }
+}
+
+#team .team-member {
+  flex: 1;
+}
+
+#team h3 {
+  font-size: clamp(1.2rem, 4vw, 20pt); /* Responsive font size */
+}
+
+#team p {
+  font-size: clamp(0.9rem, 3vw, 14pt); /* Responsive font size */
 }
