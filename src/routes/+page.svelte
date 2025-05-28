@@ -261,8 +261,9 @@
                 <p>I'm still figuring out which direction I want to take in tech, but I'm taking my time learning and exploring what clicks. For now, I'm just trying to stay consistent and enjoy the process.</p>
             </div>
             <div class="team-member">
-                <img src="/sebastian-profile.jpg" alt="Sebastian Lucian Reyes">
+                <img src="bass.png" alt="Sebastian Lucian Reyes">
                 <h3>Sebastian Lucian Reyes</h3>
+                <p>ヾ(＾∇＾) I am a 2nd year comsci student, cybersecurity nerd, and an ever-wayward adventurer. Yours truly is a gamer, language learner/linguistics nerd, martial artist, gym bro, pianist, ROTC/COCC graduate, biker, swimmer, weeb, romantic, guy na palaging naka-shades, introvert-turned-extrovert, philosophy nerd, armchair geopolitical analyst, budding spiritualist, fragrance collector, aura farmer, and so so so much more!</p>
             </div>
         </div>
     </section>
