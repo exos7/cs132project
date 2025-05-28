@@ -195,7 +195,7 @@
                     <p style="text-align:justify">The <b><u>fisheries and inland municipal fisheries</u></b> sectors do not show any significant trends, as indicated by their p-values being greater than 0.05. This suggests that the production in these sectors has remained relatively stable over the years and there is no trend in their production</p>
                 </div>
                 <div class="result-box">
-                    <h3>Overall Fish Production per Region</h3>
+                    <h3>Overall Fish Production per Region Geospatial Graph</h3>
                     <p><b>Commercial Fisheries: </b></p>
                     <img src="commercial-geospatial.jpg" alt="Commercial Fisheries Geospatial" />
                     <div class="result-divider"></div>
@@ -213,8 +213,34 @@
                 </div>
                 
                 <div class="result-box">
-                    <h3>Overall Fish Production per Region Interpretation</h3>
+                    <h3>Overall Fish Production per Region</h3>
+                    <p style="text-align:justify"><strong>Top producers are coastal/island regions:</strong></p>
+                    <ul>
+                        <li><strong>ARMM (Autonomous Region in Muslim Mindanao):</strong> ~35.98 M (19.1% of national total)</li>
+                        <li><strong>Region IX (Zamboanga Peninsula):</strong> ~25.32 M (13.4%)</li>
+                        <li><strong>Region IV-B (MIMAROPA):</strong> ~24.18 M (12.8%)</li>
+                        <li><strong>Region VI (Western Visayas):</strong> ~16.25 M (8.6%)</li>
+                        <li><strong>Region IV-A (CALABARZON):</strong> ~14.49 M (7.7%)</li>
+                    </ul>
+                    <p style="text-align:justify">Together these five regions account for ≈62% of all production, reflecting their extensive coastlines, rich fishing grounds, and well-developed aquaculture.</p>
+                    
+                    <p style="text-align:justify"><strong>Mid-tier contributors:</strong> Regions XII (SOCCSKSARGEN), III (Central Luzon), V (Bicol), VII (Central Visayas), and VIII (Eastern Visayas) each contribute between 3.6% and 7.0% of the total, with Region XII owing 39.53% of their total in commercial fishing (highest percentage from commercial fishing) and the other mid-tier contributors also boasting increased percentages from municipal fishing.</p>
+                    
+                    <p style="text-align:justify"><strong>Minimal contributors:</strong></p>
+                    <ul>
+                        <li><strong>CAR (Cordillera Administrative Region):</strong> 0.16 M (0.08%)</li>
+                        <li><strong>Region II (Cagayan Valley):</strong> 2.33 M (1.2%)</li>
+                        <li><strong>NCR (Metro Manila):</strong> 2.65 M (1.4%)</li>
+                    </ul>
+                    <p style="text-align:justify">These regions lack significant marine access (CAR is entirely landlocked) or have undergone rapid urbanization (NCR), leaving little room for large-scale fisheries.</p>
 
+                    <div class="interpretation-section">
+                        <h4>Interpretation</h4>
+                        <p style="text-align:justify"><strong>Concentration in the south and major island groups:</strong> Regions with extensive coastal waters (Mindanao, Visayas island groups, MIMAROPA) dominate fish output, both from marine capture fisheries and aquaculture.</p>
+                        <p style="text-align:justify"><strong>Economic and infrastructural factors:</strong> The top regions have long-established fishing traditions, port facilities, and supportive aquaculture industries (pond culture, cages).</p>
+                        <p style="text-align:justify"><strong>Resource and policy implications:</strong> Regions in the mid-tier contributors have room to increase their outputs, and thus could benefit from efforts on boosting production while also adopting sustainable practices to avoid overfishing further marine degradation. Landlocked areas will remain peripheral in fisheries unless inland aquaculture is significantly developed.</p>
+                        <p style="text-align:justify"><strong>Equity and food-security angle:</strong> Given the heavy reliance on a handful of regions, diversifying production zones and improving infrastructure in underperforming coastal provinces could enhance resilience against localized shocks (e.g., typhoons, overfishing).</p>
+                    </div>
                 </div>
             </div>
         </div>
