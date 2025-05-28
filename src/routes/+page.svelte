@@ -263,7 +263,6 @@
             <div class="team-member">
                 <img src="/sebastian-profile.jpg" alt="Sebastian Lucian Reyes">
                 <h3>Sebastian Lucian Reyes</h3>
-                <p>Description about Member 3.</p>
             </div>
         </div>
     </section>
